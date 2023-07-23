@@ -1,0 +1,10 @@
+sudo -u postgres psql
+
+create role blog_user with login superuser createdb createrole password 'Kfws1509@';
+
+create database blog_data_base with owner blog_user;
+
+grant all privileges on database blog_data_base to blog_user;
+\q
+
+sudo systemctl restart postgresql
